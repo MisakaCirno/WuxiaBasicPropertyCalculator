@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.G_WW1 = new System.Windows.Forms.GroupBox();
             this.L_MP2 = new System.Windows.Forms.Label();
             this.CB_MP2 = new System.Windows.Forms.ComboBox();
@@ -87,6 +88,7 @@
             this.L_WG2 = new System.Windows.Forms.Label();
             this.L_QX_R2 = new System.Windows.Forms.Label();
             this.L_QX2 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.G_WW1.SuspendLayout();
             this.G_ZD1.SuspendLayout();
             this.G_ZD2.SuspendLayout();
@@ -145,6 +147,7 @@
             this.CB_MP2.Size = new System.Drawing.Size(76, 20);
             this.CB_MP2.TabIndex = 26;
             this.CB_MP2.TabStop = false;
+            this.CB_MP2.SelectedIndexChanged += new System.EventHandler(this.IfSelectedIndexChanged);
             // 
             // CB_DB
             // 
@@ -170,46 +173,66 @@
             // T_SF
             // 
             this.T_SF.Location = new System.Drawing.Point(53, 156);
+            this.T_SF.MaxLength = 6;
             this.T_SF.Name = "T_SF";
             this.T_SF.Size = new System.Drawing.Size(100, 21);
             this.T_SF.TabIndex = 23;
             this.T_SF.Text = "0";
+            this.T_SF.Click += new System.EventHandler(this.IfSelectText);
+            this.T_SF.TextChanged += new System.EventHandler(this.IfChangeText);
+            this.T_SF.Enter += new System.EventHandler(this.IfSelectText);
             this.T_SF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNum_KeyPress);
             // 
             // T_DC
             // 
             this.T_DC.Location = new System.Drawing.Point(53, 129);
+            this.T_DC.MaxLength = 6;
             this.T_DC.Name = "T_DC";
             this.T_DC.Size = new System.Drawing.Size(100, 21);
             this.T_DC.TabIndex = 22;
             this.T_DC.Text = "0";
+            this.T_DC.Click += new System.EventHandler(this.IfSelectText);
+            this.T_DC.TextChanged += new System.EventHandler(this.IfChangeText);
+            this.T_DC.Enter += new System.EventHandler(this.IfSelectText);
             this.T_DC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNum_KeyPress);
             // 
             // T_QJ
             // 
             this.T_QJ.Location = new System.Drawing.Point(53, 100);
+            this.T_QJ.MaxLength = 6;
             this.T_QJ.Name = "T_QJ";
             this.T_QJ.Size = new System.Drawing.Size(100, 21);
             this.T_QJ.TabIndex = 21;
             this.T_QJ.Text = "0";
+            this.T_QJ.Click += new System.EventHandler(this.IfSelectText);
+            this.T_QJ.TextChanged += new System.EventHandler(this.IfChangeText);
+            this.T_QJ.Enter += new System.EventHandler(this.IfSelectText);
             this.T_QJ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNum_KeyPress);
             // 
             // T_GG
             // 
             this.T_GG.Location = new System.Drawing.Point(53, 72);
+            this.T_GG.MaxLength = 6;
             this.T_GG.Name = "T_GG";
             this.T_GG.Size = new System.Drawing.Size(100, 21);
             this.T_GG.TabIndex = 20;
             this.T_GG.Text = "0";
+            this.T_GG.Click += new System.EventHandler(this.IfSelectText);
+            this.T_GG.TextChanged += new System.EventHandler(this.IfChangeText);
+            this.T_GG.Enter += new System.EventHandler(this.IfSelectText);
             this.T_GG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNum_KeyPress);
             // 
             // T_LD
             // 
             this.T_LD.Location = new System.Drawing.Point(53, 44);
+            this.T_LD.MaxLength = 6;
             this.T_LD.Name = "T_LD";
             this.T_LD.Size = new System.Drawing.Size(100, 21);
             this.T_LD.TabIndex = 19;
             this.T_LD.Text = "0";
+            this.T_LD.Click += new System.EventHandler(this.IfSelectText);
+            this.T_LD.TextChanged += new System.EventHandler(this.IfChangeText);
+            this.T_LD.Enter += new System.EventHandler(this.IfSelectText);
             this.T_LD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNum_KeyPress);
             // 
             // L_SF
@@ -285,6 +308,7 @@
             this.CB_MP1.Size = new System.Drawing.Size(76, 20);
             this.CB_MP1.TabIndex = 12;
             this.CB_MP1.TabStop = false;
+            this.CB_MP1.SelectedIndexChanged += new System.EventHandler(this.IfSelectedIndexChanged);
             // 
             // G_ZD1
             // 
@@ -705,6 +729,11 @@
             this.L_QX2.TabIndex = 40;
             this.L_QX2.Text = "气血：";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -713,8 +742,11 @@
             this.Controls.Add(this.G_ZD2);
             this.Controls.Add(this.G_ZD1);
             this.Controls.Add(this.G_WW1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "天涯明月刀OL 全门派五维属性计算器";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "天涯明月刀OL 全门派五维属性计算器 V1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.G_WW1.ResumeLayout(false);
             this.G_WW1.PerformLayout();
@@ -787,6 +819,7 @@
         private System.Windows.Forms.Label L_MP2;
         private System.Windows.Forms.ComboBox CB_MP2;
         private System.Windows.Forms.CheckBox CB_DB;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 
